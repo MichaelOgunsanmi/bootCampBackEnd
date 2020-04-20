@@ -1,0 +1,25 @@
+{
+  "name": "bootcampbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon --require dotenv/config server.js",
+    "st": "nodemon server.js",
+    "beforeStart": "export NODE_ENV=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelOgunsanmi/bootCampBackEnd.git"
+  },
+  "author": {
+    "name": "Michael Ogunsanmi",
+    "email": "ogunsanmimichael@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichaelOgunsanmi/bootCampBackEnd/issues"
+  },
+  "homepage": "https://github.com/MichaelOgunsanmi/bootCampBackEnd#readme"
+}
