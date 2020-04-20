@@ -1,6 +1,4 @@
 const winston = require('winston');
-require('winston-mongodb');
-require('express-async-errors');
 
 const server = require('../server');
 
@@ -38,12 +36,6 @@ module.exports = function () {
     winston.add(
         new winston.transports.File(
             winstonSetting('./log/logfile.log')
-        )
-    );
-
-    winston.add(
-        new winston.transports.MongoDB(
-            dbConnection()
         )
     );
 
