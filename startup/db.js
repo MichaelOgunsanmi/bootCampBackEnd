@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const server = require('../server');
 
 const dbConnection = async () => {
-    const dbLocal = process.env.DB_LOCAL;
+    const dbLocal = process.env.DB_LOCAL || 'mongodb://localhost/bootcamp';
     const dbOnline = process.env.DB_ONLINE;
 
     mongoose.set('useNewUrlParser', true);

@@ -1,7 +1,7 @@
 const express = require('express');
 
 //routes
-const exampleRoute = require('../routes/exampleRoute');
+const bootcampRoute = require('../routes/bootcampRoute');
 const error404Route = require('../routes/error404Route');
 
 //middlewares
@@ -14,7 +14,7 @@ module.exports = function (app) {
     app.use(express.json());
 
     //register routes
-    app.use('/api/exampleRoute', exampleRoute);
+    app.use('/api/v1/bootcamps', bootcampRoute);
 
     //register route handler for 404 requests
     app.use(error404Route);
