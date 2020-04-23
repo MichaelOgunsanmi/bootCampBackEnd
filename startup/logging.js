@@ -19,13 +19,6 @@ const winstonSetting = (filename) => {
 
 
 module.exports = function () {
-
-    process.on('unhandledRejection', (ex) => {
-        server.close(() => {
-            throw(ex)
-        });
-    });
-
     winston.add(
         new winston.transports.File({
             ...winstonSetting('./log/uncaughtExceptions.log'),
@@ -44,6 +37,12 @@ module.exports = function () {
             format: winston.format.simple()
         })
     );
+
+    process.on('unhandledRejection', (ex) => {
+        server.close(() => {
+            throw(ex)
+        });
+    });
 
     process.on('SIGTERM', () => {
         winston.info(`SIGTERM received, shutting down gracefully`);
