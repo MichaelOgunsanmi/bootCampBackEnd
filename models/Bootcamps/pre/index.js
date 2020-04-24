@@ -1,7 +1,7 @@
-const examplePre = require('./examplePre');
+const slugifyBootcampNamePreSave = require('./slugifyBootcampNamePreSave');
 
 
 
 module.exports = {
-    examplePre
+    slugifyBootcampNamePreSave
 };
