@@ -4,11 +4,15 @@ const router = express.Router();
 const exampleMiddleware = require('../middlewares/exampleMiddleware');
 
 
-const {exampleController} = require('../controllers/exampleController');
+const {
+    createBootcampController
+} = require('../controllers/bootcamp');
 
 
 
-router.get('/endpoint', exampleMiddleware, exampleController);
+router
+    .route('/')
+    .post(createBootcampController);
 
 
 module.exports = router;
