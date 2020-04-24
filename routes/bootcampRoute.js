@@ -2,20 +2,23 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    filterRequestQueryObject
+    filterRequestQueryObject,
+    doesBootcampExist
 } = require('../middlewares');
 
 
 const {
     getSingleBootcampController,
     getAllBootcampsController,
-    createBootcampController
+    createBootcampController,
+    updateBootcampController
 } = require('../controllers/bootcamp');
 
 
 router
     .route('/:id')
-    .get(getSingleBootcampController);
+    .get(getSingleBootcampController)
+    .patch(doesBootcampExist, updateBootcampController);
 
 
 router
