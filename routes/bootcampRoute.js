@@ -7,10 +7,15 @@ const {
 
 
 const {
+    getSingleBootcampController,
     getAllBootcampsController,
     createBootcampController
 } = require('../controllers/bootcamp');
 
+
+router
+    .route('/:id')
+    .get(getSingleBootcampController);
 
 
 router
