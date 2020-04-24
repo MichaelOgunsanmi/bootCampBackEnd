@@ -11,14 +11,16 @@ const {
     getSingleBootcampController,
     getAllBootcampsController,
     createBootcampController,
-    updateBootcampController
+    updateBootcampController,
+    deleteBootcampController
 } = require('../controllers/bootcamp');
 
 
 router
     .route('/:id')
     .get(getSingleBootcampController)
-    .patch(doesBootcampExist, updateBootcampController);
+    .patch(doesBootcampExist, updateBootcampController)
+    .delete(doesBootcampExist, deleteBootcampController);
 
 
 router
