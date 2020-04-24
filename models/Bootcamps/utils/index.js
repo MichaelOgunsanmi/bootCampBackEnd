@@ -1,7 +1,7 @@
-const validateExample = require('./validateExample');
+const validateBootcamp = require('./validateBootcamp');
 
 
 
 module.exports = {
-    validateExample
+    validateBootcamp
 };

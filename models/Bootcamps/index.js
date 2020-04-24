@@ -4,7 +4,7 @@ const {exampleStatic} = require('./statics');
 const {exampleMethod} = require('./methods');
 const {examplePre} = require('./pre');
 const {examplePost} = require('./post');
-const {validateExample} = require('./utils');
+const {validateBootcamp} = require('./utils');
 
 const bootcampSchema = new mongoose.Schema({
     name: {
@@ -114,6 +114,6 @@ const Bootcamp = mongoose.model('bootcamp', bootcampSchema);
 
 module.exports = {
     Bootcamp,
-    validateExample
+    validateBootcamp
 };
 
