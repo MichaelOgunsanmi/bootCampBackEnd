@@ -17,7 +17,7 @@ const {
 } = require('../controllers/bootcamp');
 
 
-router.get('/bootcamps-within/:zipcode/:distance', getBootcampsWithinController);
+router.get('/bootcamps-within/:zipcode/:radius', getBootcampsWithinController);
 
 
 router
