@@ -10,10 +10,14 @@ const {
 const {
     getSingleBootcampController,
     getAllBootcampsController,
+    getBootcampsWithinController,
     createBootcampController,
     updateBootcampController,
     deleteBootcampController
 } = require('../controllers/bootcamp');
+
+
+router.get('/bootcamps-within/:zipcode/:distance', getBootcampsWithinController);
 
 
 router
