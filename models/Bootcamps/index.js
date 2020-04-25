@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const {exampleStatic} = require('./statics');
 const {exampleMethod} = require('./methods');
-const {slugifyBootcampNamePreSave} = require('./pre');
+const {
+    slugifyBootcampNamePreSave,
+    createLocationFieldFromAddressPreSave
+} = require('./pre');
 const {examplePost} = require('./post');
 const {
     validateBootcamp,
@@ -108,6 +111,7 @@ bootcampSchema.statics.exampleStatic = exampleStatic;
 bootcampSchema.methods.exampleMethod = exampleMethod;
 
 bootcampSchema.pre('save',  slugifyBootcampNamePreSave);
+bootcampSchema.pre('save',  createLocationFieldFromAddressPreSave);
 
 bootcampSchema.post('examplePost',  examplePost);
 
