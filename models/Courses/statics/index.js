@@ -1,7 +1,7 @@
-const exampleStatic = require('./exampleStatic');
+const computeAverageCost = require('./computeAverageCost');
 
 
 
 module.exports = {
-    exampleStatic
+    computeAverageCost
 };
