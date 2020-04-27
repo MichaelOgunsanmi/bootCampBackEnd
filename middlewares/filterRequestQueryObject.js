@@ -28,7 +28,7 @@ const cleanQueryFields = (req) => {
 
     const queryObjString = JSON.stringify(queryObj);
 
-    req.queryParams =  JSON.parse(queryObjString.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`));
+    req.queryParams =  JSON.parse(queryObjString.replace(/\b(gte|gt|lte|lt|in)\b/g, match => `$${match}`));
 };
 
 
