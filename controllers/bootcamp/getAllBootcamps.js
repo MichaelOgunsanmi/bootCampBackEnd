@@ -16,7 +16,9 @@ const getAllBootcamps = asyncWrapper( async (req, res, next) => {
         .sort(req.sortBy)
         .select(req.select)
         .skip(req.skip)
-        .limit(req.limit);
+        .limit(req.limit)
+        .populate('courses');
+    
 
     res.status(200).json({
         status: 'success',

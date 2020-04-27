@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+const {courseVirtualRelationship} = require('./virtual');
 const {exampleStatic} = require('./statics');
 const {exampleMethod} = require('./methods');
 const {
@@ -103,8 +104,13 @@ const bootcampSchema = new mongoose.Schema({
     }
 },
 {
-    timestamps: true
+    timestamps: true,
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true},
 });
+
+
+bootcampSchema.virtual('courses', courseVirtualRelationship);
 
 bootcampSchema.statics.exampleStatic = exampleStatic;
 
@@ -115,6 +121,7 @@ bootcampSchema.pre('save',  createLocationFieldFromAddressPreSave);
 
 bootcampSchema.post('examplePost',  examplePost);
 
+console.log(bootcampSchema.virtuals)
 
 const Bootcamp = mongoose.model('bootcamp', bootcampSchema);
 

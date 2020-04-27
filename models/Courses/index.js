@@ -44,6 +44,7 @@ const courseSchema = new mongoose.Schema({
     timestamps: true
 });
 
+
 courseSchema.statics.exampleStatic = exampleStatic;
 
 courseSchema.methods.exampleMethod = exampleMethod;
