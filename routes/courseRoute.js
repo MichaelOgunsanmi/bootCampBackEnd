@@ -2,14 +2,16 @@ const express = require('express');
 const router = express.Router({ mergeParams: true});
 
 const {
-    filterRequestQueryObject
+    filterRequestQueryObject,
+    doesCourseExist
 } = require('../middlewares');
 
 
 const {
     getSingleCourseController,
     getAllCoursesController,
-    createCourseController
+    createCourseController,
+    updateCourseController
 } = require('../controllers/course');
 
 
@@ -22,7 +24,8 @@ router
 
 router
     .route('/:id')
-    .get(getSingleCourseController);
+    .get(getSingleCourseController)
+    .patch(doesCourseExist, updateCourseController);
 
 
 module.exports = router;
