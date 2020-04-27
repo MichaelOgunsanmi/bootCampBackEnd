@@ -5,7 +5,8 @@ const {exampleStatic} = require('./statics');
 const {exampleMethod} = require('./methods');
 const {
     slugifyBootcampNamePreSave,
-    createLocationFieldFromAddressPreSave
+    createLocationFieldFromAddressPreSave,
+    removeBootcampCoursesPreRemove
 } = require('./pre');
 const {examplePost} = require('./post');
 const {
@@ -118,10 +119,10 @@ bootcampSchema.methods.exampleMethod = exampleMethod;
 
 bootcampSchema.pre('save',  slugifyBootcampNamePreSave);
 bootcampSchema.pre('save',  createLocationFieldFromAddressPreSave);
+bootcampSchema.pre('remove', removeBootcampCoursesPreRemove);
 
 bootcampSchema.post('examplePost',  examplePost);
 
-console.log(bootcampSchema.virtuals)
 
 const Bootcamp = mongoose.model('bootcamp', bootcampSchema);
 

@@ -18,7 +18,7 @@ const getAllBootcamps = asyncWrapper( async (req, res, next) => {
         .skip(req.skip)
         .limit(req.limit)
         .populate('courses');
-    
+
 
     res.status(200).json({
         status: 'success',
