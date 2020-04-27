@@ -11,7 +11,8 @@ const {
     getSingleCourseController,
     getAllCoursesController,
     createCourseController,
-    updateCourseController
+    updateCourseController,
+    deleteCourseController
 } = require('../controllers/course');
 
 
@@ -25,7 +26,8 @@ router
 router
     .route('/:id')
     .get(getSingleCourseController)
-    .patch(doesCourseExist, updateCourseController);
+    .patch(doesCourseExist, updateCourseController)
+    .delete(deleteCourseController);
 
 
 module.exports = router;
