@@ -17,6 +17,10 @@ const {
 } = require('../controllers/bootcamp');
 
 
+const courseRouter = require('./courseRoute');
+router.use('/:bootcampId/courses', courseRouter);
+
+
 router.get('/bootcamps-within/:zipcode/:radius', getBootcampsWithinController);
 
 
