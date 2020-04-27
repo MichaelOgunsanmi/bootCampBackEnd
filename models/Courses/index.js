@@ -4,7 +4,7 @@ const {exampleStatic} = require('./statics');
 const {exampleMethod} = require('./methods');
 const {examplePre} = require('./pre');
 const {examplePost} = require('./post');
-const {validateExample} = require('./utils');
+const {validateCourse, validateCourseInputsFromUser} = require('./utils');
 
 const courseSchema = new mongoose.Schema({
     title: {
@@ -58,6 +58,7 @@ const Course = mongoose.model('course', courseSchema);
 
 module.exports = {
     Course,
-    validateExample
+    validateCourse,
+    validateCourseInputsFromUser
 };
 
