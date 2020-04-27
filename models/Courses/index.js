@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const {exampleStatic} = require('./statics');
 const {exampleMethod} = require('./methods');
-const {examplePre} = require('./pre');
+const {populateBootcampDetailsPreFind} = require('./pre');
 const {examplePost} = require('./post');
 const {validateCourse, validateCourseInputsFromUser} = require('./utils');
 
@@ -48,7 +48,7 @@ courseSchema.statics.exampleStatic = exampleStatic;
 
 courseSchema.methods.exampleMethod = exampleMethod;
 
-courseSchema.pre('examplePre',  examplePre);
+courseSchema.pre(/^find/, populateBootcampDetailsPreFind);
 
 courseSchema.post('examplePost',  examplePost);
 

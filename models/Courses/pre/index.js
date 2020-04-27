@@ -1,7 +1,7 @@
-const examplePre = require('./examplePre');
+const populateBootcampDetailsPreFind = require('./populateBootcampDetailsPreFind');
 
 
 
 module.exports = {
-    examplePre
+    populateBootcampDetailsPreFind
 };
