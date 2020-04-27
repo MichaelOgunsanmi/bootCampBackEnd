@@ -7,14 +7,16 @@ const {
 
 
 const {
-    getAllCoursesController
+    getAllCoursesController,
+    createCourseController
 } = require('../controllers/course');
 
 
 
 router
     .route('/')
-    .get(filterRequestQueryObject, getAllCoursesController);
+    .get(filterRequestQueryObject, getAllCoursesController)
+    .post(createCourseController);
 
 
 module.exports = router;
