@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true});
 
 const {
     filterRequestQueryObject
@@ -7,11 +7,14 @@ const {
 
 
 const {
-
+    getAllCoursesController
 } = require('../controllers/course');
 
 
 
+router
+    .route('/')
+    .get(filterRequestQueryObject, getAllCoursesController);
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
-const exampleController = require('./exampleController');
+const getAllCoursesController = require('./getAllCourses');
 
 
 
 module.exports = {
-    exampleController
+    getAllCoursesController
 };
