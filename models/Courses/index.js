@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
 
-const {exampleStatic} = require('./statics');
+const {computeAverageCost} = require('./statics');
 const {exampleMethod} = require('./methods');
-const {populateBootcampDetailsPreFind} = require('./pre');
-const {examplePost} = require('./post');
+const {
+    populateBootcampDetailsPreFind,
+    getCourseDocumentPreRemove,
+    getCourseDocumentPreFindOneAndModify
+} = require('./pre');
+const {
+    computeBootcampCourseAverageCostPostSave,
+    computeBootcampCourseAverageCostPostFindOneAndModify,
+    computeBootcampCourseAverageCostPostRemove
+} = require('./post');
 const {validateCourse, validateCourseInputsFromUser} = require('./utils');
 
 const courseSchema = new mongoose.Schema({
@@ -45,13 +53,19 @@ const courseSchema = new mongoose.Schema({
 });
 
 
-courseSchema.statics.exampleStatic = exampleStatic;
+courseSchema.statics = {
+    computeAverageCost
+};
 
 courseSchema.methods.exampleMethod = exampleMethod;
 
 courseSchema.pre(/^find/, populateBootcampDetailsPreFind);
+courseSchema.pre('remove', getCourseDocumentPreRemove);
+courseSchema.pre(/^findOneAnd/, getCourseDocumentPreFindOneAndModify);
 
-courseSchema.post('examplePost',  examplePost);
+courseSchema.post('save',  computeBootcampCourseAverageCostPostSave);
+courseSchema.post('remove', computeBootcampCourseAverageCostPostRemove);
+courseSchema.pre(/^findOneAnd/, computeBootcampCourseAverageCostPostFindOneAndModify);
 
 
 const Course = mongoose.model('course', courseSchema);

@@ -1,7 +1,11 @@
-const examplePost = require('./examplePost');
+const computeBootcampCourseAverageCostPostSave = require('./computeBootcampCourseAverageCostPostSave');
+const computeBootcampCourseAverageCostPostFindOneAndModify = require('./computeBootcampCourseAverageCostPostFindOneAndModify');
+const computeBootcampCourseAverageCostPostRemove = require('./computeBootcampCourseAverageCostPostRemove');
 
 
 
 module.exports = {
-    examplePost
+    computeBootcampCourseAverageCostPostSave,
+    computeBootcampCourseAverageCostPostFindOneAndModify,
+    computeBootcampCourseAverageCostPostRemove
 };
