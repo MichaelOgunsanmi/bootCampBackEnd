@@ -4,7 +4,7 @@ const asyncWrapper = require('../asyncWrapper');
 
 
 const doesBootcampExist = asyncWrapper(async (req, res, next) => {
-    const bootcampId = req.params.id;
+    const bootcampId = req.params.id || req.params.bootcampId || req.body.bootcamp;
 
     const findBootcamp = await Bootcamp.findById(bootcampId);
 

@@ -3,7 +3,8 @@ const router = express.Router({ mergeParams: true});
 
 const {
     filterRequestQueryObject,
-    doesCourseExist
+    doesCourseExist,
+    doesBootcampExist
 } = require('../middlewares');
 
 
@@ -20,7 +21,7 @@ const {
 router
     .route('/')
     .get(filterRequestQueryObject, getAllCoursesController)
-    .post(createCourseController);
+    .post(doesBootcampExist, createCourseController);
 
 
 router

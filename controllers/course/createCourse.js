@@ -7,14 +7,6 @@ const asyncWrapper = require('../../middlewares/asyncWrapper');
 const createCourse = asyncWrapper( async (req, res, next) => {
     if (!req.body.bootcamp) req.body.bootcamp = req.params.bootcampId;
 
-    const doesBootcampExist = await Bootcamp.findById(req.body.bootcamp);
-
-    if (!doesBootcampExist) return next({
-        statusCode: 400,
-        status: 'fail',
-        message: `Bootcamp with id ${req.body.bootcamp} does not exist`
-    });
-
     const {error} = validateCourse(req.body);
 
     if (error) return next({
