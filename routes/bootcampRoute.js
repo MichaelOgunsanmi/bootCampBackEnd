@@ -10,10 +10,11 @@ const {
 const {
     getSingleBootcampController,
     getAllBootcampsController,
-    getBootcampsWithinController,
     createBootcampController,
     updateBootcampController,
-    deleteBootcampController
+    deleteBootcampController,
+    getBootcampsWithinController,
+    uploadBootcampPhotoController
 } = require('../controllers/bootcamp');
 
 
@@ -22,6 +23,7 @@ router.use('/:bootcampId/courses', courseRouter);
 
 
 router.get('/bootcamps-within/:zipcode/:radius', getBootcampsWithinController);
+router.patch('/upload-bootcamp-photo/:bootcampId', doesBootcampExist, uploadBootcampPhotoController);
 
 
 router
