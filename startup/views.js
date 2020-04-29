@@ -7,7 +7,7 @@ const pathToViewsDirectory = path.resolve(__dirname, '..', 'views');
 
 
 module.exports = function (app) {
-    app.set('view engine', 'pug');
+    // app.set('view engine', 'pug');
     app.set('views', pathToViewsDirectory);
     app.use(express.static(pathToPublicDirectory));
 };

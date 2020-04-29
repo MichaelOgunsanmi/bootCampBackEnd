@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 
 //routes
 const bootcampRoute = require('../routes/bootcampRoute');
@@ -13,6 +14,7 @@ const {globalErrorHandler} = require('../middlewares');
 module.exports = function (app) {
     //register middlewares for parse incoming requests
     app.use(express.json());
+    app.use(fileUpload());
 
     //register routes
     app.use('/api/v1/bootcamps', bootcampRoute);
