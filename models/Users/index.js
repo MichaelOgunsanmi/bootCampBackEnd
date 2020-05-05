@@ -36,40 +36,25 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Email field is required'],
         trim: true,
         lowercase: true,
-        unique: true
-    },
-    photo: {
-        type: String,
-        default: 'default.jpg'
+        unique: true,
+        match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+            'Invalid email']
     },
     role: {
         type: String,
-        enum: ['user', 'guide', 'lead-guide', 'admin'],
+        enum: ['user', 'publisher'],
         default: 'user'
     },
     password: {
         type: String,
         required: [true, 'Password field is required'],
-        trim: true,
-        minlength: 8,
+        minlength: 6,
         select: false
     },
-    confirmPassword: {
-        type: String,
-        required: [true, 'Please confirm your password'],
-        validate: {
-            validator: function (value) {return value === this.password},
-            message: "Passwords are not the same"
-        }
-    },
-    passwordChangeDate: Date,
     passwordResetToken: String,
     passwordResetExpiresAt: Date,
-    active: {
-        type: Boolean,
-        default: true,
-        select: false
-    }
+}, {
+    timestamps: true
 });
 
 userSchema.statics = {
