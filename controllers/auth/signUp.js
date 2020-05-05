@@ -22,7 +22,7 @@ const signUp = asyncWrapper(async (req, res, next) => {
 
     const newUser = new User(req.body);
 
-    // const token = newUser.generateAuthToken();
+    const token = newUser.generateAuthToken();
     //
     // setJWTCookie(token, req, res);
 
