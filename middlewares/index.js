@@ -8,6 +8,11 @@ const {doesBootcampExist} = require('./bootcamp');
 const {doesCourseExist} = require('./course');
 
 const {
+    authenticateUser,
+    authorizeUser
+} = require('./auth');
+
+const {
     validateUserRequestBody,
     uploadUserPhoto,
     resizeUserPhoto,
@@ -25,5 +30,7 @@ module.exports = {
     uploadUserPhoto,
     resizeUserPhoto,
     doesUserExist,
-    getCurrentUser
+    getCurrentUser,
+    authenticateUser,
+    authorizeUser,
 };
