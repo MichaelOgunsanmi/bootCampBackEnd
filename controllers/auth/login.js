@@ -1,5 +1,5 @@
 const {User} = require('../../models/Users');
-// const {setJWTCookie} = require('../../cookies');
+const {setJWTCookie} = require('../../cookies');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 
 const login = asyncWrapper(async (req, res, next) => {
@@ -15,7 +15,7 @@ const login = asyncWrapper(async (req, res, next) => {
 
     const token = await user.generateAuthToken();
 
-    // setJWTCookie(token, req, res);
+    setJWTCookie(token, req, res);
 
     res.status(200).json({
         status: "success",

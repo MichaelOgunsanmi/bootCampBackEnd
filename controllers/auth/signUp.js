@@ -1,5 +1,5 @@
 const {User, validateUser} = require('../../models/Users');
-// const {setJWTCookie} = require('../../cookies');
+const {setJWTCookie} = require('../../cookies');
 // const {sendWelcomeEmail} = require('../../emails');
 const asyncWrapper = require('../../middlewares/asyncWrapper');
 
@@ -23,8 +23,8 @@ const signUp = asyncWrapper(async (req, res, next) => {
     const newUser = new User(req.body);
 
     const token = newUser.generateAuthToken();
-    //
-    // setJWTCookie(token, req, res);
+
+    setJWTCookie(token, req, res);
 
     const createdUser = await newUser.save();
 
