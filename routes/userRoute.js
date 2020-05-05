@@ -23,7 +23,6 @@ const {
 
 router.use(authenticateUser);
 
-router.patch('/updateMyPassword', validateUserRequestBody, updatePasswordController);
 router.get('/me', getCurrentUser, getSingleUserController);
 router.patch('/updateMe', uploadUserPhoto, resizeUserPhoto, validateUserRequestBody, updateUserController);
 router.delete('/deleteMe', deleteUserController);
