@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
 
 //routes
@@ -16,6 +17,7 @@ const {globalErrorHandler} = require('../middlewares');
 module.exports = function (app) {
     //register middlewares for parse incoming requests
     app.use(express.json());
+    app.use(cookieParser());
     app.use(fileUpload());
 
     //register routes
