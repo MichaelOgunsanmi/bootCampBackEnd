@@ -4,7 +4,8 @@ const router = express.Router({ mergeParams: true});
 const {
     filterRequestQueryObject,
     doesCourseExist,
-    doesBootcampExist
+    doesBootcampExist,
+    authenticateUser
 } = require('../middlewares');
 
 
@@ -21,14 +22,14 @@ const {
 router
     .route('/')
     .get(filterRequestQueryObject, getAllCoursesController)
-    .post(doesBootcampExist, createCourseController);
+    .post(authenticateUser, doesBootcampExist, createCourseController);
 
 
 router
     .route('/:id')
     .get(getSingleCourseController)
-    .patch(doesCourseExist, updateCourseController)
-    .delete(deleteCourseController);
+    .patch(authenticateUser, doesCourseExist, updateCourseController)
+    .delete(authenticateUser, deleteCourseController);
 
 
 module.exports = router;

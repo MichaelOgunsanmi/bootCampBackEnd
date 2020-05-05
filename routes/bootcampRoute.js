@@ -3,7 +3,8 @@ const router = express.Router();
 
 const {
     filterRequestQueryObject,
-    doesBootcampExist
+    doesBootcampExist,
+    authenticateUser
 } = require('../middlewares');
 
 
@@ -23,20 +24,20 @@ router.use('/:bootcampId/courses', courseRouter);
 
 
 router.get('/bootcamps-within/:zipcode/:radius', getBootcampsWithinController);
-router.patch('/upload-bootcamp-photo/:bootcampId', doesBootcampExist, uploadBootcampPhotoController);
+router.patch('/upload-bootcamp-photo/:bootcampId', authenticateUser, doesBootcampExist, uploadBootcampPhotoController);
 
 
 router
     .route('/:id')
     .get(getSingleBootcampController)
-    .patch(doesBootcampExist, updateBootcampController)
-    .delete(doesBootcampExist, deleteBootcampController);
+    .patch(authenticateUser, doesBootcampExist, updateBootcampController)
+    .delete(authenticateUser, doesBootcampExist, deleteBootcampController);
 
 
 router
     .route('/')
     .get(filterRequestQueryObject, getAllBootcampsController)
-    .post(createBootcampController);
+    .post(authenticateUser, createBootcampController);
 
 
 module.exports = router;
