@@ -4,6 +4,7 @@ const fileUpload = require('express-fileupload');
 //routes
 const bootcampRoute = require('../routes/bootcampRoute');
 const courseRoute = require('../routes/courseRoute');
+const authRoute = require('../routes/authRoute');
 const userRoute = require('../routes/userRoute');
 const error404Route = require('../routes/error404Route');
 
@@ -20,8 +21,9 @@ module.exports = function (app) {
     //register routes
     app.use('/api/v1/bootcamps', bootcampRoute);
     app.use('/api/v1/courses', courseRoute);
+    app.use('/api/v1/users', authRoute);
     app.use('/api/v1/users', userRoute);
-    
+
     //register route handler for 404 requests
     app.use(error404Route);
 
