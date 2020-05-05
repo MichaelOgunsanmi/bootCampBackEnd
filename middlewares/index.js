@@ -7,11 +7,23 @@ const {doesBootcampExist} = require('./bootcamp');
 
 const {doesCourseExist} = require('./course');
 
+const {
+    validateUserRequestBody,
+    uploadUserPhoto,
+    resizeUserPhoto,
+    doesUserExist,
+    getCurrentUser
+} = require('./user');
 
 
 module.exports = {
     globalErrorHandler,
     filterRequestQueryObject,
     doesBootcampExist,
-    doesCourseExist
+    doesCourseExist,
+    validateUserRequestBody,
+    uploadUserPhoto,
+    resizeUserPhoto,
+    doesUserExist,
+    getCurrentUser
 };
